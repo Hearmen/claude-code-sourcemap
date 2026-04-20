@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+*.tgz
+cli-dev.js
+cli-dev.js.map
+cli-dev-*.js
+extract-src/test.js
+extract-src/src/cli.js
+extract-src/src/test2.js
+extract-src/src/cli-dev.js
+extract-src/src/*.map
+
+# OS files
+.DS_Store
