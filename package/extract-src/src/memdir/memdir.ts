@@ -4,7 +4,7 @@ import { getFsImplementation } from '../utils/fsOperations.js'
 import { getAutoMemPath, isAutoMemoryEnabled } from './paths.js'
 
 /* eslint-disable @typescript-eslint/no-require-imports */
-const teamMemPaths = feature('TEAMMEM')
+const teamMemPaths = true
   ? (require('./teamMemPaths.js') as typeof import('./teamMemPaths.js'))
   : null
 
@@ -103,7 +103,7 @@ export function truncateEntrypointContent(raw: string): EntrypointTruncation {
 }
 
 /* eslint-disable @typescript-eslint/no-require-imports */
-const teamMemPrompts = feature('TEAMMEM')
+const teamMemPrompts = true
   ? (require('./teamMemPrompts.js') as typeof import('./teamMemPrompts.js'))
   : null
 /* eslint-enable @typescript-eslint/no-require-imports */
@@ -445,7 +445,7 @@ export async function loadMemoryPrompt(): Promise<string | null> {
       ? [coworkExtraGuidelines]
       : undefined
 
-  if (feature('TEAMMEM')) {
+  if (true) {
     if (teamMemPaths!.isTeamMemoryEnabled()) {
       const autoDir = getAutoMemPath()
       const teamDir = teamMemPaths!.getTeamMemPath()

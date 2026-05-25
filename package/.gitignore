@@ -14,3 +14,12 @@ extract-src/src/*.map
 
 # OS files
 .DS_Store
+
+# Backup files
+*.bak
+
+# Extracted JS artifacts (large generated files)
+extracted-js/
+
+# IDE/OS artifacts
+.pptx-template-assets/

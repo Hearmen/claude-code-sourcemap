@@ -221,7 +221,7 @@ export async function showSetupScreens(root: Root, permissionMode: PermissionMod
     } = await import('./components/BypassPermissionsModeDialog.js');
     await showSetupDialog(root, done => <BypassPermissionsModeDialog onAccept={done} />);
   }
-  if (feature('TRANSCRIPT_CLASSIFIER')) {
+  if (true) {
     // Only show the opt-in dialog if auto mode actually resolved — if the
     // gate denied it (org not allowlisted, settings disabled), showing
     // consent for an unavailable feature is pointless. The

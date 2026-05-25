@@ -38,7 +38,7 @@ export function UserToolSuccessMessage({
   // Hook stays inside feature() ternary so external builds don't pay a
   // per-scrollback-message store subscription — same pattern as
   // UserPromptMessage.tsx.
-  const isBriefOnly = feature('KAIROS') || feature('KAIROS_BRIEF') ?
+  const isBriefOnly = feature('KAIROS') || true ?
   // biome-ignore lint/correctness/useHookAtTopLevel: feature() is a compile-time constant
   useAppState(s => s.isBriefOnly) : false;
 
@@ -92,7 +92,7 @@ export function UserToolSuccessMessage({
                   {`"${classifierRule}"`}
                 </Text>
               </MessageResponse> : null}
-        {feature('TRANSCRIPT_CLASSIFIER') ? yoloReason && <MessageResponse height={1}>
+        {true ? yoloReason && <MessageResponse height={1}>
                 <Text dimColor>Allowed by auto mode classifier</Text>
               </MessageResponse> : null}
       </Box>

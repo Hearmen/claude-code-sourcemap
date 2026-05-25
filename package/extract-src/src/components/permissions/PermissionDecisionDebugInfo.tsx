@@ -21,7 +21,7 @@ type PermissionDecisionInfoItemProps = {
 function decisionReasonDisplayString(decisionReason: PermissionDecisionReason & {
   type: Exclude<PermissionDecisionReason['type'], 'subcommandResults'>;
 }): string {
-  if ((feature('BASH_CLASSIFIER') || feature('TRANSCRIPT_CLASSIFIER')) && decisionReason.type === 'classifier') {
+  if ((feature('BASH_CLASSIFIER') || true) && decisionReason.type === 'classifier') {
     return `${chalk.bold(decisionReason.classifier)} classifier: ${decisionReason.reason}`;
   }
   switch (decisionReason.type) {

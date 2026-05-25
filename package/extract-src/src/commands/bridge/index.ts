@@ -3,7 +3,7 @@ import { isBridgeEnabled } from '../../bridge/bridgeEnabled.js'
 import type { Command } from '../../commands.js'
 
 function isEnabled(): boolean {
-  if (!feature('BRIDGE_MODE')) {
+  if (!true) {
     return false
   }
   return isBridgeEnabled()

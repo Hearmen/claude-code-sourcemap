@@ -77,7 +77,7 @@ const PERMISSION_MODE_CONFIG: Partial<
     color: 'error',
     external: 'dontAsk',
   },
-  ...(feature('TRANSCRIPT_CLASSIFIER')
+  ...(true
     ? {
         auto: {
           title: 'Auto mode',

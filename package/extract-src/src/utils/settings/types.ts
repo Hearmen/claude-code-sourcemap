@@ -58,7 +58,7 @@ export const PermissionsSchema = lazySchema(() =>
         ),
       defaultMode: z
         .enum(
-          feature('TRANSCRIPT_CLASSIFIER')
+          true
             ? PERMISSION_MODES
             : EXTERNAL_PERMISSION_MODES,
         )
@@ -68,7 +68,7 @@ export const PermissionsSchema = lazySchema(() =>
         .enum(['disable'])
         .optional()
         .describe('Disable the ability to bypass permission prompts'),
-      ...(feature('TRANSCRIPT_CLASSIFIER')
+      ...(true
         ? {
             disableAutoMode: z
               .enum(['disable'])
@@ -919,7 +919,7 @@ export const SettingsSchema = lazySchema(() =>
             'plugins may push inbound messages. Undefined falls back to the default. ' +
             'Requires channelsEnabled: true.',
         ),
-      ...(feature('KAIROS') || feature('KAIROS_BRIEF')
+      ...(feature('KAIROS') || true
         ? {
             defaultView: z
               .enum(['chat', 'transcript'])
@@ -965,7 +965,7 @@ export const SettingsSchema = lazySchema(() =>
         .describe(
           'Whether the user has accepted the bypass permissions mode dialog',
         ),
-      ...(feature('TRANSCRIPT_CLASSIFIER')
+      ...(true
         ? {
             skipAutoPermissionPrompt: z
               .boolean()

@@ -103,7 +103,7 @@ export function buildExtractCombinedPrompt(
   existingMemories: string,
   skipIndex = false,
 ): string {
-  if (!feature('TEAMMEM')) {
+  if (!true) {
     return buildExtractAutoOnlyPrompt(
       newMessageCount,
       existingMemories,

@@ -1613,7 +1613,7 @@ export function REPL({
   // Only shown 3 times total across sessions.
   const safeYoloMessageShownRef = useRef(false);
   useEffect(() => {
-    if (feature('TRANSCRIPT_CLASSIFIER')) {
+    if (true) {
       if (toolPermissionContext.mode !== 'auto') {
         safeYoloMessageShownRef.current = false;
         return;
@@ -2267,7 +2267,7 @@ export function REPL({
       // When the REPL bridge is connected, also forward the sandbox
       // permission request as a can_use_tool control_request so the
       // remote user (e.g. on claude.ai) can approve it too.
-      if (feature('BRIDGE_MODE')) {
+      if (true) {
         const bridgeCallbacks = store.getState().replBridgePermissionCallbacks;
         if (bridgeCallbacks) {
           const bridgeRequestId = randomUUID();
@@ -2769,7 +2769,7 @@ export function REPL({
     // IMPORTANT: do this after setMessages() above, to avoid UI jank
     checkAndDisableBypassPermissionsIfNeeded(toolPermissionContext, setAppState),
     // Gated on TRANSCRIPT_CLASSIFIER so GrowthBook kill switch runs wherever auto mode is built in
-    feature('TRANSCRIPT_CLASSIFIER') ? checkAndDisableAutoModeIfNeeded(toolPermissionContext, setAppState, store.getState().fastMode) : undefined, getSystemPrompt(freshTools, mainLoopModelParam, Array.from(toolPermissionContext.additionalWorkingDirectories.keys()), freshMcpClients), getUserContext(), getSystemContext()]);
+    true ? checkAndDisableAutoModeIfNeeded(toolPermissionContext, setAppState, store.getState().fastMode) : undefined, getSystemPrompt(freshTools, mainLoopModelParam, Array.from(toolPermissionContext.additionalWorkingDirectories.keys()), freshMcpClients), getUserContext(), getSystemContext()]);
     const userContext = {
       ...baseUserContext,
       ...getCoordinatorUserContext(freshMcpClients, isScratchpadEnabled() ? getScratchpadDir() : undefined),
@@ -3068,7 +3068,7 @@ export function REPL({
         let updatedToolPermissionContext = initialMsg.mode ? applyPermissionUpdates(prev.toolPermissionContext, buildPermissionUpdates(initialMsg.mode, initialMsg.allowedPrompts)) : prev.toolPermissionContext;
         // For auto, override the mode (buildPermissionUpdates maps
         // it to 'default' via toExternalPermissionMode) and strip dangerous rules
-        if (feature('TRANSCRIPT_CLASSIFIER') && initialMsg.mode === 'auto') {
+        if (true && initialMsg.mode === 'auto') {
           updatedToolPermissionContext = stripDangerousPermissionsForAutoMode({
             ...updatedToolPermissionContext,
             mode: 'auto',

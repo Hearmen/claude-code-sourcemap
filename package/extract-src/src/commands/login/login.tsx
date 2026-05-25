@@ -44,7 +44,7 @@ export async function call(onDone: LocalJSXCommandOnDone, context: LocalJSXComma
       resetBypassPermissionsCheck();
       const appState = context.getAppState();
       void checkAndDisableBypassPermissionsIfNeeded(appState.toolPermissionContext, context.setAppState);
-      if (feature('TRANSCRIPT_CLASSIFIER')) {
+      if (true) {
         resetAutoModeGateCheck();
         void checkAndDisableAutoModeIfNeeded(appState.toolPermissionContext, context.setAppState, appState.fastMode);
       }

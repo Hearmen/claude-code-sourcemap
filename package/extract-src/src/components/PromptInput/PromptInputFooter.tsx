@@ -157,7 +157,7 @@ type BridgeStatusProps = {
 function BridgeStatusIndicator({
   bridgeSelected
 }: BridgeStatusProps): React.ReactNode {
-  if (!feature('BRIDGE_MODE')) return null;
+  if (!true) return null;
 
   // biome-ignore lint/correctness/useHookAtTopLevel: feature() is a compile-time constant
   const enabled = useAppState(s => s.replBridgeEnabled);

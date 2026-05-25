@@ -311,3 +311,23 @@ src/main.tsx           # 入口：启动优化（并行 MDM/Keychain 预取）�
 3. 运行时无崩溃、执行效果与 `cli.js` 一致的 `cli-dev.js`
 4. 可持续的构建-验证工作流文档
 ```
+
+# 三阶段 prompt
+
+```
+# 方案 ：对比 v2.1.143_extracted.js 和 cli.js ，并将差异应用到 `extract-src` 中
+
+## 目标
+将v2.1.143_extracted.js的更新应用到 `extract-src` 中，使其成为可重新构建出 `cli-dev.js` 的完整工程,要求 `cli-dev.js` 和 `v2.1.143_extracted.js` 的执行效果一致。
+
+## 现状
+
+cli.js 是 `extract-src` 的编译结果，版本是 2.1.88，现在最新的版本是 v2.1.143_extracted.js
+
+
+
+```
+
+```
+对比一下 v2.1.143_extracted.js 和构建出来的 cli-test.js，列出当前仍有的差异
+```

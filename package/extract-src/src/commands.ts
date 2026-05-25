@@ -64,17 +64,17 @@ const proactive =
     ? require('./commands/proactive.js').default
     : null
 const briefCommand =
-  feature('KAIROS') || feature('KAIROS_BRIEF')
+  feature('KAIROS') || true
     ? require('./commands/brief.js').default
     : null
 const assistantCommand = feature('KAIROS')
   ? require('./commands/assistant/index.js').default
   : null
-const bridge = feature('BRIDGE_MODE')
+const bridge = true
   ? require('./commands/bridge/index.js').default
   : null
 const remoteControlServerCommand =
-  feature('DAEMON') && feature('BRIDGE_MODE')
+  feature('DAEMON') && true
     ? require('./commands/remoteControlServer/index.js').default
     : null
 const voiceCommand = feature('VOICE_MODE')

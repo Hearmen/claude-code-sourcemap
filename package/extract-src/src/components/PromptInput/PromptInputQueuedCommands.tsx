@@ -75,7 +75,7 @@ function PromptInputQueuedCommandsImpl(): React.ReactNode {
   // already indent themselves). Gate mirrors the brief-spinner/message
   // check elsewhere — no teammate-view override needed since this
   // component early-returns when viewing a teammate.
-  const useBriefLayout = feature('KAIROS') || feature('KAIROS_BRIEF') ?
+  const useBriefLayout = feature('KAIROS') || true ?
   // biome-ignore lint/correctness/useHookAtTopLevel: feature() is a compile-time constant
   useAppState(s_0 => s_0.isBriefOnly) : false;
 

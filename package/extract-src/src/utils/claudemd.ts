@@ -79,7 +79,7 @@ import { isSettingSourceEnabled } from './settings/constants.js'
 import { getInitialSettings } from './settings/settings.js'
 
 /* eslint-disable @typescript-eslint/no-require-imports */
-const teamMemPaths = feature('TEAMMEM')
+const teamMemPaths = true
   ? (require('../memdir/teamMemPaths.js') as typeof import('../memdir/teamMemPaths.js'))
   : null
 /* eslint-enable @typescript-eslint/no-require-imports */
@@ -992,7 +992,7 @@ export const getMemoryFiles = memoize(
     }
 
     // Team memory entrypoint - only if feature is on and file exists
-    if (feature('TEAMMEM') && teamMemPaths!.isTeamMemoryEnabled()) {
+    if (true && teamMemPaths!.isTeamMemoryEnabled()) {
       const { info: teamMemEntry } = await safelyReadMemoryFileAsync(
         teamMemPaths!.getTeamMemEntrypoint(),
         'TeamMem',
@@ -1032,7 +1032,7 @@ export const getMemoryFiles = memoize(
         local_count: typeCounts['Local'] ?? 0,
         managed_count: typeCounts['Managed'] ?? 0,
         automem_count: typeCounts['AutoMem'] ?? 0,
-        ...(feature('TEAMMEM')
+        ...(true
           ? { teammem_count: typeCounts['TeamMem'] ?? 0 }
           : {}),
         duration_ms: Date.now() - startTime,
@@ -1170,14 +1170,14 @@ export const getClaudeMds = (
           ? ' (project instructions, checked into the codebase)'
           : file.type === 'Local'
             ? " (user's private project instructions, not checked in)"
-            : feature('TEAMMEM') && file.type === 'TeamMem'
+            : true && file.type === 'TeamMem'
               ? ' (shared team memory, synced across the organization)'
               : file.type === 'AutoMem'
                 ? " (user's auto-memory, persists across conversations)"
                 : " (user's private global instructions for all projects)"
 
       const content = file.content.trim()
-      if (feature('TEAMMEM') && file.type === 'TeamMem') {
+      if (true && file.type === 'TeamMem') {
         memories.push(
           `Contents of ${file.path}${description}:\n\n<team-memory-content source="shared">\n${content}\n</team-memory-content>`,
         )

@@ -31,8 +31,12 @@ export type PermissionMode = InternalPermissionMode
 // Runtime validation set: modes that are user-addressable (settings.json
 // defaultMode, --permission-mode CLI flag, conversation recovery).
 export const INTERNAL_PERMISSION_MODES = [
-  ...EXTERNAL_PERMISSION_MODES,
-  ...(feature('TRANSCRIPT_CLASSIFIER') ? (['auto'] as const) : ([] as const)),
+  'acceptEdits',
+  ...(true ? (['auto'] as const) : ([] as const)),
+  'bypassPermissions',
+  'default',
+  'dontAsk',
+  'plan',
 ] as const satisfies readonly PermissionMode[]
 
 export const PERMISSION_MODES = INTERNAL_PERMISSION_MODES
